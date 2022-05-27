@@ -9,6 +9,18 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'all_workers' %}">Home</a>
         </li>
+        {% if not request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'login_user' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'register_user' %}">Register</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'logout_user' %}">Logout</a>
+          </li>
+        {% endif %}
       </ul>
       <form class="d-flex" action="{% url 'search' %}" method="get">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="s">

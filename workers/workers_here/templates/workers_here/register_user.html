@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block title-site %}
-Login User
+Register User
 {% endblock %}
 {% block body %}
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-primary btn-block">Войти</button>
+    <button type="submit" class="btn btn-primary btn-block">Зарегистрироваться</button>
 </form>
 {% endblock %}
