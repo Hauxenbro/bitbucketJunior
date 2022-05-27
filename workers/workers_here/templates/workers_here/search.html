@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title-site %}
+Search
+{% endblock %}
+{% block body %}
+<ol class="list-group list-group-numbered">
+{% for worker in workers %}
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto">
+            <div class="fw-bold"><a href="{{ worker.get_absolute_url }}">{{ worker.name }}</a></div>
+            {{ worker.place }}
+        </div>
+    </li>
+{% empty %}
+<p>Ничего не найдено по вашему запросу...</p>
+{% endfor %}
+</ol>
+{% endblock %}

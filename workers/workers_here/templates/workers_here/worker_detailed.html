@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ worker.name }}
+{% endblock %}
+{% block body %}
+    <p>{{ worker.name }}</p>
+    <p>{{ worker.working_place }}</p>
+    <p>{{ worker.salary }}</p>
+    <p>{{ worker.hire_date }}</p>
+{% if worker.parent %}
+    <p>{{ worker.parent }}</p>
+{% else %}
+    <p>Нет начальника.</p>
+{% endif %}
+{% endblock %}

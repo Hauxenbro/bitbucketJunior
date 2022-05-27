@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load mptt_tags %}
+{% block title-site %}Workers{% endblock %}
+{% block body %}
+{% if request.user.is_authenticated %}
+    <form class="d-flex" action="{% url 'all_workers_sorted' %}" method="get">
+        <button class="btn btn-outline-success" type="submit" name="knopka" value="name">By Name</button>
+        <button class="btn btn-outline-success" type="submit" name="knopka" value="salary">By Salary</button>
+        <button class="btn btn-outline-success" type="submit" name="knopka" value="hire_date">By Hiring</button>
+    </form>
+{% endif %}
+<ul class="list-group">
+    {% for node in Workers %}
+    <li class="list-group-item">
+        <a href="{{ node.get_absolute_url }}">{{ node.name }}</a> - {{ node.working_place }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
