@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title-site %}
+Edit worker
+{% endblock %}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">SAVE</button>
+</form>
+{% endblock %}

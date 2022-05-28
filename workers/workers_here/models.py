@@ -10,6 +10,7 @@ class Workers(MPTTModel):
     hire_date = models.DateTimeField(auto_now_add = True, verbose_name = 'Дата приёма на работу')
     salary = models.DecimalField(max_digits = 12, decimal_places = 2, verbose_name = 'Зарплата')
     parent = TreeForeignKey('self', on_delete = models.SET_NULL, null = True, blank = True, related_name = 'children', verbose_name = 'Начальник')
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d/', null = True, blank = True)
 
     class Meta:
         verbose_name = 'Работник'
